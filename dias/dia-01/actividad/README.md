@@ -1,15 +1,20 @@
-# Actividad 01 — solución inicial
+# Actividad 01 — solución corregida
 
-1. Entidades
-- Clientes
-- Datos
-- Cuentas
+1. Entidades: Clientes, Cuentas y Transacciones.
 
-2. RF
-- El motor almacena nombre completo, correo único, teléfono, fecha de nacimiento y núm. identificación fiscal y este no puede repetirse.
-- Un mismo cliente puede abrir varias cuentas, cada cuenta debe registrar ID de cuenta y tipo de moneda, saldo actual y límite de crédito.
-- Poder transferir y que se registre cada movimiento de "A" a "B" y fecha y monto.
+2. Requerimientos funcionales:
+- Clientes: guardar nombre, correo, teléfono, fecha de nacimiento y Tax ID.
+- Cuentas: guardar número, moneda, tipo, saldo, límite de crédito y cliente titular.
+- Transacciones: guardar cuenta origen, cuenta destino, monto, tipo y fecha/hora exacta.
 
-3. Restricciones
-- No puede tener números negativos por error del backend.
-Nota:
+3. El Tax ID no puede repetirse: debe tener una restricción UNIQUE.
+
+## Cambios respecto al intento
+
+Identifico transacciones y completo los requisitos y tax id único.
+
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+## Referencia
+
+[Clave del profesor — Actividad 01](https://moodle.umsa.edu.mx/mod/resource/view.php?id=21761). Requiere acceso a Moodle.
