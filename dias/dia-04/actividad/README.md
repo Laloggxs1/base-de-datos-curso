@@ -1,0 +1,27 @@
+# Actividad 04 — solución inicial
+
+Asignación de tipos de datos nativos y Enums en OmniBank.
+
+1. Diseña los tipos enumerados del banco:
+
+```sql
+Monedas: CREATE TYPE moneda AS Enum
+('USD', 'Eur', 'Mxn');
+
+Cuentas: CREATE TYPE tipo_cuenta AS Enum
+('cheking', 'savings', 'credit');
+
+Movimientos: CREATE TYPE tipo_transaccion
+AS Enum ('Deposit', 'withdrawal', 'Transfer');
+```
+
+2. Corrección de tipos nativos y especificación
+
+Cuentas
+- Cuenta_ID (UUID)
+- Saldo (Numeric)
+- Fecha (Timestamp[lectura dudosa: tz])
+
+Cliente
+Las (PK) y (FK) usarán UUID.
+Nota: La anotación del tipo de fecha está atravesada por el sello. Se conserva "cheking" según la escritura visible.
