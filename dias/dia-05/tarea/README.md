@@ -1,8 +1,19 @@
-# Tarea 05 — solución inicial
+# Tarea 05 — solución corregida
 
-Dictamen y defensa de políticas de integridad referencial en OmniBank
+Rechazo ON DELETE CASCADE en las relaciones principales del ejercicio porque borrar un cliente o cuenta podría eliminar registros dependientes que se necesitan para revisar el historial.
 
-Se rechaza el uso de un Delete Cascade en las tablas principales de OmniBank. En un entorno bancario, este comportamiento representa un riesgo crítico, ya que la eliminación accidental o no autorizada de un cliente podría provocar la pérdida automática.
+Uso ON DELETE RESTRICT y bajas lógicas con is_active=false. El ejemplo SQL conserva las filas y desactiva al cliente y sus cuentas en una transacción.
 
-La política oficial de OmniBank será utilizar un DELETE RESTRICT en todas las relaciones críticas y aplicar bajas lógicas mediante campos como [lectura dudosa: is_active] = false o estados como CLOSED. De esta forma el cliente o la cuenta dejan de operar.
-Nota: Parte de "comportamiento" llega al borde derecho. El nombre manuscrito del campo de baja lógica es poco claro; se marcó la lectura dudosa.
+RESTRICT solo impide borrar si existen referencias dependientes; no bloquea por sí solo todo DELETE. Para prohibir el borrado físico hacen falta permisos y una política de acceso adicional. Las limpiezas de pruebas deben hacerse en una base separada.
+
+## Cambios respecto al intento
+
+Documento restrict y baja lógica sin eliminar historial.
+
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+[Código SQL corregido](solucion.sql).
+
+## Referencia
+
+[Clave del profesor — Tarea 05](https://moodle.umsa.edu.mx/mod/resource/view.php?id=23167). Requiere acceso a Moodle.
