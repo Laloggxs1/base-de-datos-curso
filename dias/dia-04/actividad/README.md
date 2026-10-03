@@ -1,27 +1,17 @@
-# Actividad 04 — solución inicial
+# Actividad 04 — solución corregida
 
-Asignación de tipos de datos nativos y Enums en OmniBank.
+Uso NUMERIC(15,2) para saldo, TIMESTAMPTZ para la fecha de modificación y UUID para PK y FK. Los valores de los ENUM deben coincidir exactamente, incluyendo mayúsculas y la escritura CHECKING.
 
-1. Diseña los tipos enumerados del banco:
+El SQL agrega GBP y crea el esquema core antes de declarar los tipos. UUID no sustituye la autorización de acceso a los datos.
 
-```sql
-Monedas: CREATE TYPE moneda AS Enum
-('USD', 'Eur', 'Mxn');
+## Cambios respecto al intento
 
-Cuentas: CREATE TYPE tipo_cuenta AS Enum
-('cheking', 'savings', 'credit');
+Corrijo enum y especifico numeric, timestamptz y uuid.
 
-Movimientos: CREATE TYPE tipo_transaccion
-AS Enum ('Deposit', 'withdrawal', 'Transfer');
-```
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
 
-2. Corrección de tipos nativos y especificación
+[Código SQL corregido](solucion.sql).
 
-Cuentas
-- Cuenta_ID (UUID)
-- Saldo (Numeric)
-- Fecha (Timestamp[lectura dudosa: tz])
+## Referencia
 
-Cliente
-Las (PK) y (FK) usarán UUID.
-Nota: La anotación del tipo de fecha está atravesada por el sello. Se conserva "cheking" según la escritura visible.
+[Clave del profesor — Actividad 04](https://moodle.umsa.edu.mx/mod/resource/view.php?id=22844). Requiere acceso a Moodle.
