@@ -1,28 +1,26 @@
-# Actividad 02 — solución inicial
+# Actividad 02 — solución corregida
 
-Diagrama transcrito como texto
+Clientes: cliente_id (PK), nombre, correo, teléfono, fecha_nacimiento, tax_id.
 
-Clientes
-- Cliente-ID [marca de llave parcialmente cubierta]
-- Nombre
-- Correo
-- Número
-- Fecha de nac.
+Cuentas: cuenta_id (PK), cliente_id (FK), moneda, tipo_cuenta, saldo_actual, limite_credito.
 
-Cuentas
-- [Primeros atributos y marcas de llave cubiertos por el sello]
-- Tipo
-- Crédito
+Transacciones: transaccion_id (PK), from_account (FK a Cuentas), to_account (FK a Cuentas), monto, tipo_transaccion, fecha_completada.
 
-Transacciones
-- ID (PK)
-- Monto
-- Cantidad
-- Fecha
-- Registro
+Un cliente tiene muchas cuentas. Cada cuenta tiene un titular en este modelo. Una cuenta puede aparecer como origen o destino de muchas transacciones; son dos relaciones distintas.
 
-Relaciones dibujadas: Clientes -- Cuentas -- Transacciones.
+```mermaid
+erDiagram
+    CLIENTES ||--o{ CUENTAS : tiene
+    CUENTAS ||--o{ TRANSACCIONES : origen
+    CUENTAS ||--o{ TRANSACCIONES : destino
+```
 
-1. 1 cliente puede más cuentas 1, 2, 3, 4...
-   1 cuenta la puede manejar muchos clientes [final cortado].
-Nota: Se preserva la descripción original de las relaciones. Los atributos ocultos no se completaron con la solución del maestro.
+## Cambios respecto al intento
+
+Corrijo cardinalidades y separo origen y destino.
+
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+## Referencia
+
+[Clave del profesor — Actividad 02](https://moodle.umsa.edu.mx/mod/resource/view.php?id=21785). Requiere acceso a Moodle.
