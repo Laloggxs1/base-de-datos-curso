@@ -1,16 +1,24 @@
-# Actividad 03 — solución inicial
+# Actividad 03 — solución corregida
 
-Paso 1 - Primera forma (1NF)
+Primero separo los datos combinados: cliente_nombre_y_contacto en nombre, email y teléfono; moneda_y_tipo en moneda y tipo_cuenta.
 
-Cliente
-Cliente_id (PK) | Nombre
-C-01            | Roberto
+Después organizo cuatro tablas:
 
-Contacto
-Contacto_id (PK) | Cliente_id (FK) | Número
-t-01             | C-01            | 555-9011
+| Tabla | Campos |
+|---|---|
+| Sucursales | sucursal_id PK, dirección |
+| Clientes | cliente_id PK, nombre, email, teléfono |
+| Cuentas | cuenta_numero PK, cliente_id FK, sucursal_id FK, moneda, tipo_cuenta, saldo_actual |
+| Transacciones | transaccion_id PK, cuenta_numero FK, fecha_tx, monto_tx |
 
-Correo
-Correo_id (PK) | Cliente_id (FK) | Correo
-Co-01          | C-01            | rob@gmail.com
-Nota: Las tablas dibujadas se presentan en texto estructurado. Los identificadores manuscritos se leen como C-01, t-01 y Co-01.
+Separar Sucursales evita repetir su dirección en cada cuenta o movimiento. Separar Clientes evita repetir sus datos por transacción. Todas las columnas contienen un dato atómico. Se pueden usar UUID como identificadores.
+
+## Cambios respecto al intento
+
+Completo normalización con sucursales, cuentas y transacciones.
+
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+## Referencia
+
+[Clave del profesor — Actividad 03](https://moodle.umsa.edu.mx/mod/resource/view.php?id=22563). Requiere acceso a Moodle.
