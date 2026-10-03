@@ -1,24 +1,17 @@
-# Tarea 04 — solución inicial
+# Tarea 04 — solución corregida
 
-Diseño de dominios customizados
+Los dos dominios son monto_financiero y texto_obligatorio. Corrijo LEGTH por LENGTH.
 
-1. Sentencias definitivas, creación de dominios
+monto_financiero sirve para saldo_actual, limite_credito y monto_tx. El CHECK de texto rechaza cadenas vacías y espacios, pero no rechaza NULL; la columna debe declarar NOT NULL si es obligatoria.
 
-A) Dominio Monetario Bancario
-```sql
-CREATE DOMAIN monto_financiero AS
-NUMERIC(15,2) CHECK (Value >= 0.00);
-```
+## Cambios respecto al intento
 
-B) Dominio de fiscal
-```sql
-CREATE DOMAIN texto_obligatorio AS
-varchar(100) CHECK (Value <> '' AND
-LEGTH(TRIM(Value)) > 0);
-```
+Corrijo length y explico restricciones de los dominios.
 
-2. Indicación en dónde emplearemos el dominio monto_financiero
-- Saldo de la tabla (Cuentas).
-- límite_crédito de la tabla (Cuentas).
-- Monto de tabla (Transacciones).
-Nota: El nombre de la función aparece escrito como LEGTH; no se corrigió a LENGTH.
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+[Código SQL corregido](solucion.sql).
+
+## Referencia
+
+[Clave del profesor — Tarea 04](https://moodle.umsa.edu.mx/mod/resource/view.php?id=22845). Requiere acceso a Moodle.
