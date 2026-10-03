@@ -1,21 +1,17 @@
-# Actividad 08 — solución inicial
+# Actividad 08 — solución corregida
 
-1.
-```sql
-SELECT
-    account_number,
-    account_type,
-    balance
-FROM core.accounts
-WHERE balance >= 1000
-ORDER BY balance DESC
-LIMIT 2
-```
+Completo los tres reportes: cuentas con saldo >=1000 o tipo SAVINGS, clientes con correo terminado en @email.com sin distinguir mayúsculas, y retiros con description IS NULL.
 
-2.
-```sql
-SELECT first_name, last_name, email
-FROM core.customers.
-WHERE email ILIKE '@email.com';
-```
-Nota: La cifra tras LIMIT se lee como 2, sobre una marca de tinta. El punto después de customers se conserva.
+Corrijo el punto tras customers y agrego % al patrón ILIKE. Uso columnas explícitas, ORDER BY, LIMIT y COALESCE para mostrar una descripción visible.
+
+## Cambios respecto al intento
+
+Completo reportes con or, ilike, is null y coalesce.
+
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+[Código SQL corregido](solucion.sql).
+
+## Referencia
+
+[Clave del profesor — Actividad 08](https://moodle.umsa.edu.mx/mod/resource/view.php?id=24306). Requiere acceso a Moodle.
