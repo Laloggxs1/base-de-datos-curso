@@ -1,26 +1,21 @@
-# Tarea 06 — solución inicial
+# Tarea 06 — solución corregida
 
-Análisis forense post-mortem
+La respuesta original trataba un exceso de conexiones. La clave describe otro incidente: un ADD CONSTRAINT que mantiene un bloqueo ACCESS EXCLUSIVE mientras valida el histórico, impidiendo accesos a la tabla.
 
-1. Causa raíz del incidente
-El incidente se debió a muchas conexiones activas que superaban el límite (max_connections = 100), provocando que la aplicación dejara de funcionar.
+La corrección divide el trabajo: agregar el CHECK con NOT VALID y confirmar; después, en otra transacción, ejecutar VALIDATE CONSTRAINT. La primera etapa evita el escaneo histórico inicial, aunque necesita un bloqueo DDL breve. La segunda usa SHARE UPDATE EXCLUSIVE y permite lecturas y escritura ordinarias compatibles.
 
-2. Solución
-Se aumentó el parámetro max_connections, se optimizó el pool de conexiones y se cerraron las conexiones inactivas también se implementó
+No prometo tiempos fijos ni ausencia total de esperas. Hay que revisar los datos existentes y la carga del servidor. La validación es una sentencia normal que espera a terminar; no es una tarea asíncrona automática.
 
-```sql
-ALTER SYSTEM SET max_connections = 200;
-SELECT pg_reload_conf();
-```
+## Cambios respecto al intento
 
-Así se evitan interrupciones.
+Corrijo diagnóstico y separo not valid de validate.
 
-3. Validación segura posterior
-Se revisaron los registros y se confirmó que el problema se resolvió.
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
 
-```sql
-SELECT count(*) FORM pg_stat_activity;
-SELECT * FROM pg_stat_activity
-WHERE state = 'active';
-```
-Nota: Se conserva FORM y la explicación de conexiones tal como aparecen, sin sustituirlos por la respuesta de referencia.
+[Código SQL corregido](solucion.sql).
+
+## Referencia
+
+[Clave del profesor — Tarea 06](https://moodle.umsa.edu.mx/mod/resource/view.php?id=23172). Requiere acceso a Moodle.
+
+[PostgreSQL: ALTER TABLE](https://www.postgresql.org/docs/18/sql-altertable.html).
