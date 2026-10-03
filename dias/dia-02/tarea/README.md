@@ -1,35 +1,21 @@
-# Tarea 02 — solución inicial
+# Tarea 02 — solución corregida
 
-Diagrama transcrito como texto
+Se conserva el ERD de la actividad, con estos detalles:
 
-Clientes
-- Cliente ID (PK)
-- Nombre completo
-- Correo (único)
-- Número (único)
-- Tax id (único)
-- Activo
+- cliente_id, cuenta_id y transaccion_id son PK de tipo UUID.
+- cliente_id en Cuentas y from_account/to_account en Transacciones son FK de tipo UUID.
+- Clientes: tax_id UNIQUE e is_active para baja lógica.
+- Cuentas: saldo_actual con CHECK (saldo_actual >= 0) y updated_at para registrar modificaciones.
+- Cuentas conserva moneda, tipo_cuenta y limite_credito; Clientes conserva sus datos de contacto y fecha de nacimiento.
 
-Cuentas
-- Cuenta ID (PK)
-- Cliente ID (FK)
-- Moneda
-- Tipo de cuenta
-- Saldo
-- Límite de crédito
-- Cambios
+Las FK deben tener un tipo compatible con la PK referenciada. No uso una relación directa entre Clientes y Transacciones.
 
-Transacción
-- ID Transacción (PK)
-- Cuenta_origen (FK)
-- Cuenta_Destino (FK)
-- Monto
-- Tipo_Transacción
-- Fecha_exacta
+## Cambios respecto al intento
 
-Relaciones dibujadas:
-- Clientes (1) -- Cuentas (muchos).
-- Cuenta -- Transacción, con dos líneas: Origen y Destino.
+Completo uuid, tax id único y campos de baja lógica.
 
-Nota: Todas las (PK) deben ser UUID.
-Nota:
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+## Referencia
+
+[Clave del profesor — Tarea 02](https://moodle.umsa.edu.mx/mod/resource/view.php?id=22070). Requiere acceso a Moodle.
