@@ -1,0 +1,6 @@
+.DS_Store
+Thumbs.db
+.env
+*.private
+node_modules/
+.pgdata/
