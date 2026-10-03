@@ -1,0 +1,35 @@
+Tarea 02
+
+Diagrama transcrito como texto
+
+Clientes
+- Cliente ID (PK)
+- Nombre completo
+- Correo (único)
+- Número (único)
+- Tax id (único)
+- Activo
+
+Cuentas
+- Cuenta ID (PK)
+- Cliente ID (FK)
+- Moneda
+- Tipo de cuenta
+- Saldo
+- Límite de crédito
+- Cambios
+
+Transacción
+- ID Transacción (PK)
+- Cuenta_origen (FK)
+- Cuenta_Destino (FK)
+- Monto
+- Tipo_Transacción
+- Fecha_exacta
+
+Relaciones dibujadas:
+- Clientes (1) -- Cuentas (muchos).
+- Cuenta -- Transacción, con dos líneas: Origen y Destino.
+
+Nota: Todas las (PK) deben ser UUID.
+Nota:
