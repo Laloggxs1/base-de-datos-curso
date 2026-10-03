@@ -1,8 +1,17 @@
-# Tarea 03 — solución inicial
+# Tarea 03 — solución corregida
 
-El auditor tiene razón desde la teoría estricta de normalización porque "saldo_actual" es un dato derivado de las transacciones y, por lo tanto, redundante.
+El saldo almacenado puede ser redundante respecto de un historial completo de movimientos. Si se guarda por rendimiento, debe mantenerse sincronizado con el registro de movimientos.
 
-Sin embargo, es un sistema bancario de alto volumen calcular el saldo desde cero con "sum()" en cada solicitud con 250,000 frontend, especialmente acumuladas, aumentaría el trabajo del CPU y los tiempos de latencia del servidor PostgreSQL, afectando el rendimiento.
+Mantener saldo_actual permite consultar el saldo sin sumar todo el historial cada vez. Para actualizarlo, el movimiento y el cambio de saldo deben ejecutarse dentro de la misma transacción ACID, usando bloqueos de fila cuando corresponda. También se deben limitar las modificaciones directas y comprobar inconsistencias.
 
-Por eso se mantiene deliberadamente saldo_actual como una desnormalización controlada: permite consultas rápidas, pero debe protegerse medidas bloqueos transacciones y triggers que actualicen el saldo y el historial dentro de una misma transacción ACID, evitando inconsistencias y garantizando que ambos datos permanezcan sincronizados.
-Nota: Se mantiene la redacción original, incluidas las expresiones "250,000 frontend" y "debe protegerse medidas". El extremo derecho de saldo_actual está cortado en la foto.
+La clave plantea esto como desnormalización controlada. Que un dato sea calculable no prueba por sí solo una violación de 3NF: las formas normales se analizan mediante dependencias funcionales. Tampoco una semilla parcial de movimientos permite reconstruir necesariamente el saldo almacenado.
+
+## Cambios respecto al intento
+
+Preciso saldo almacenado y sincronización transaccional.
+
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+## Referencia
+
+[Clave del profesor — Tarea 03](https://moodle.umsa.edu.mx/mod/resource/view.php?id=22564). Requiere acceso a Moodle.
