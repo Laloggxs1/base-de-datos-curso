@@ -1,35 +1,17 @@
-# Tarea 09 — solución inicial
+# Tarea 09 — solución corregida
 
-```sql
-SELECT
-(SELECT COUNT(*) FROM customers) AS
-    total_customers,
-(SELECT COUNT(*) FROM accounts) AS
-    total_accounts,
-(SELECT account(*) FROM transactions) AS
-    total_transactions
+Cuento primero cada tabla y calculo solo COUNT(*) del CROSS JOIN: 4×5×4=80 combinaciones. No son 80 operaciones bancarias.
 
-COUNT(*) AS total_cartesian_product
-FROM transaction
+El reporte correcto une account_id y customer_id, filtra clientes activos y montos >=100, y ordena por tx_timestamp y transaction_id. En la semilla devuelve tres eventos. El número de combinaciones por sí solo no determina tiempo, memoria ni plan de ejecución.
 
-CROSS JOIN accounts,
-CROSS JOIN customers;
+## Cambios respecto al intento
 
-SELECT
-    cu.email
-    ac.account_number
-    tr.transaction_type
-    tr.amount
-    tr.created_at
-FROM transaction tr
-INNER JOIN accounts ac
-    ON tr.account_id = ac.account_id
-INNER JOIN customers cu
-    ON ac.customer_id = cu.customer_id
-WHERE cu.is_active = TRUE
-    AND tr.amount >= 100
-ORDER BY
-    tr.created_at ASC
-    tr.transaction_id ASC
-```
-Nota: La tercera subconsulta parece decir account(*) y se conserva. No se añadieron separadores ni comas faltantes.
+Corrijo producto cartesiano y reporte con claves reales.
+
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+[Código SQL corregido](solucion.sql).
+
+## Referencia
+
+[Clave del profesor — Tarea 09](https://moodle.umsa.edu.mx/mod/resource/view.php?id=24836). Requiere acceso a Moodle.
