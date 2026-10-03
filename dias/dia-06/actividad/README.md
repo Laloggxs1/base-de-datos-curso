@@ -1,34 +1,17 @@
-# Actividad 06 — solución inicial
+# Actividad 06 — solución corregida
 
-Evolucionando el core bancario
+Agrego credit_score con rango de 300 a 850 e iban con unicidad. Convierto loans.status de texto a ENUM mediante USING, quitando primero el DEFAULT y restableciéndolo con el nuevo tipo.
 
-```sql
-CREATE TYPE core.loan_status_enum
-AS Enum ('Paid', 'DEFAULTED', 'CANCELLED' [borde cortado]
+Incluyo ACTIVE y escribo PAID con el mismo formato de la clave. Toda la migración, incluida la creación del ENUM, queda dentro de BEGIN/COMMIT; un error debe provocar ROLLBACK.
 
-BEGIN;
+## Cambios respecto al intento
 
-ALTER TABLE core.customers
-ADD Column credit_score INTEGER;
+Completo enum y convierto status junto con su default.
 
-ALTER TABLE core.customers
-ADD Constraint chk_customers_credit_score_
-    range
-CHECK (credit_score BETWEEN 300 AND
-    850);
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
 
-ALTER TABLE core.accounts
-ADD COLUMN iban VARCHAR(34);
+[Código SQL corregido](solucion.sql).
 
-ALTER TABLE core.accounts
-ADD Constraint uq_accounts_iban
-UNIQUE (iban);
+## Referencia
 
-ALTER TABLE core.loans
-ALTER COLUMN status
-TYPE core.loan_status_enum
-USING status::core.loan_status_enum;
-
-COMMIT;
-```
-Nota: La primera sentencia llega al borde de la foto. No se agregó ACTIVE ni un cierre que no se pueda verificar en el original. El nombre del constraint aparece dividido en dos renglones.
+[Clave del profesor — Actividad 06](https://moodle.umsa.edu.mx/mod/resource/view.php?id=23171). Requiere acceso a Moodle.
