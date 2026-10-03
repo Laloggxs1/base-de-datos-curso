@@ -1,26 +1,17 @@
-# Tarea 08 — solución inicial
+# Tarea 08 — solución corregida
 
-Código SQL
+La clave actual usa un umbral didáctico de 100, no el 10000 de mi libreta. Reviso TRANSFER/WITHDRAWAL desde 100 y también retiros cuya descripción sea NULL, vacía o solo espacios.
 
-```sql
-SELECT transaction_id, amount, tx_type, tx_timestamp,
-COALESCE(description,
- 'Exclusion oportunamente DETECTADA sin motivo de pago')
- AS description_monitoreada
+Normalizo la descripción con NULLIF(TRIM(...),'') y uso COALESCE. Los paréntesis separan los dos criterios. En el checkpoint de prueba aparecen tres candidatos. Esto es una revisión exploratoria, no una conclusión sobre fraude ni destinatarios.
 
-FROM core.transactions
+## Cambios respecto al intento
 
-WHERE
-(amount >= 10000.00 AND tx_type IN ('Transfer'
- 'withDrawl'))
-OR
-(description ILIKE '%crypto%'
- description ILIKE '%offshare%'
- description ILIKE '%shell%'
- description ILIKE '%casino%'
-OR
-(NULLIF(TRIM(description), '') IS NULL
- AND tx_type = 'Deposit')
-ORDER BY amount DESC;
-```
-Nota: Se mantienen los términos, operadores y paréntesis visibles, sin añadir OR entre los filtros ni completar los cierres. La lectura de withDrawl y offshare es dudosa.
+Actualizo criterios de revisión y normalizo descripciones.
+
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+[Código SQL corregido](solucion.sql).
+
+## Referencia
+
+[Clave del profesor — Tarea 08](https://moodle.umsa.edu.mx/mod/resource/view.php?id=24308). Requiere acceso a Moodle.
