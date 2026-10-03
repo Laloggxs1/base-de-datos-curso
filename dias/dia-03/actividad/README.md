@@ -1,0 +1,16 @@
+# Actividad 03 — solución inicial
+
+Paso 1 - Primera forma (1NF)
+
+Cliente
+Cliente_id (PK) | Nombre
+C-01            | Roberto
+
+Contacto
+Contacto_id (PK) | Cliente_id (FK) | Número
+t-01             | C-01            | 555-9011
+
+Correo
+Correo_id (PK) | Cliente_id (FK) | Correo
+Co-01          | C-01            | rob@gmail.com
+Nota: Las tablas dibujadas se presentan en texto estructurado. Los identificadores manuscritos se leen como C-01, t-01 y Co-01.
