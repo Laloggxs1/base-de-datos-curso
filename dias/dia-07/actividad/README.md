@@ -1,26 +1,17 @@
-# Actividad 07 — solución inicial
+# Actividad 07 — solución corregida
 
-Población inicial del core bancario OmniBank
+Completo INSERT INTO, nombres de columnas, UUID y separadores. Inserto clientes, cuentas y movimientos; uso ON CONFLICT y RETURNING.
 
-```sql
-BEGIN;
+Además de evitar clientes y cuentas duplicados, asigno UUID estables a los eventos. El UPDATE descuenta 50 solo cuando se inserta por primera vez el evento de comisión. Repetir el script no vuelve a cobrar ni duplica los movimientos. Este ajuste resuelve la falta de idempotencia de esos pasos en la clave.
 
-Inserto core.customers.
-(id, first_name, last_name, email, phone, tax_id
- date_of_birth)
-VALUES
-('[UUID de unos: cantidad de dígitos dudosa]',
- 'John', 'Doe', 'John.doe@gmail.com',
- '555-0100', 'Tax-100', '1985-04-12' [borde cortado]
+## Cambios respecto al intento
 
-('22222222-2222-2222-2222-222222222222'
- 'Jane', 'Smith', 'Jane.smith@gmail.com', '555-0200'
- 'Tax-200', '1990-08-25');
+Completo semilla y evito duplicados y cobros repetidos.
 
-('33333333-3333-3333-3333-333333333333'
- 'Alice', 'Johnson', 'alice.j@gmail.com', '555-0300'
- 'TAX-300', '1978-11-05'),
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
 
-ON CONFLICT ('1978-11-05')
-```
-Nota: Se conserva el inicio "Inserto" y el ON CONFLICT visible, aunque no constituyen SQL completo. Algunas comas, comillas y dígitos del primer UUID no se distinguen con certeza. No se reconstruyeron por comparación con Moodle.
+[Código SQL corregido](solucion.sql).
+
+## Referencia
+
+[Clave del profesor — Actividad 07](https://moodle.umsa.edu.mx/mod/resource/view.php?id=23173). Requiere acceso a Moodle.
