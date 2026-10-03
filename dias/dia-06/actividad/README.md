@@ -1,0 +1,34 @@
+# Actividad 06 — solución inicial
+
+Evolucionando el core bancario
+
+```sql
+CREATE TYPE core.loan_status_enum
+AS Enum ('Paid', 'DEFAULTED', 'CANCELLED' [borde cortado]
+
+BEGIN;
+
+ALTER TABLE core.customers
+ADD Column credit_score INTEGER;
+
+ALTER TABLE core.customers
+ADD Constraint chk_customers_credit_score_
+    range
+CHECK (credit_score BETWEEN 300 AND
+    850);
+
+ALTER TABLE core.accounts
+ADD COLUMN iban VARCHAR(34);
+
+ALTER TABLE core.accounts
+ADD Constraint uq_accounts_iban
+UNIQUE (iban);
+
+ALTER TABLE core.loans
+ALTER COLUMN status
+TYPE core.loan_status_enum
+USING status::core.loan_status_enum;
+
+COMMIT;
+```
+Nota: La primera sentencia llega al borde de la foto. No se agregó ACTIVE ni un cierre que no se pueda verificar en el original. El nombre del constraint aparece dividido en dos renglones.
