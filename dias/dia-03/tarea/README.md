@@ -1,0 +1,8 @@
+# Tarea 03 — solución inicial
+
+El auditor tiene razón desde la teoría estricta de normalización porque "saldo_actual" es un dato derivado de las transacciones y, por lo tanto, redundante.
+
+Sin embargo, es un sistema bancario de alto volumen calcular el saldo desde cero con "sum()" en cada solicitud con 250,000 frontend, especialmente acumuladas, aumentaría el trabajo del CPU y los tiempos de latencia del servidor PostgreSQL, afectando el rendimiento.
+
+Por eso se mantiene deliberadamente saldo_actual como una desnormalización controlada: permite consultas rápidas, pero debe protegerse medidas bloqueos transacciones y triggers que actualicen el saldo y el historial dentro de una misma transacción ACID, evitando inconsistencias y garantizando que ambos datos permanezcan sincronizados.
+Nota: Se mantiene la redacción original, incluidas las expresiones "250,000 frontend" y "debe protegerse medidas". El extremo derecho de saldo_actual está cortado en la foto.
