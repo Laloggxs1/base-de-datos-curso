@@ -1,36 +1,19 @@
-# Actividad 05 — solución inicial
+# Actividad 05 — solución corregida
 
-Levantando los cimientos del core bancario OmniBank
+Completo las cuatro tablas: customers, accounts, loans y transactions. Corrijo IF NOT EXIST por IF NOT EXISTS, uso nombres de columnas consistentes y agrego PK, UNIQUE, CHECK y FK con nombres explícitos.
 
-```sql
-CREATE SCHEMA IF NOT EXIST core;
-```
+Primero creo customers; después accounts y loans; al final transactions. Las FK usan ON DELETE RESTRICT. Esta versión sigue el DDL actual de la clave, donde transactions registra account_id; el modelo conceptual del día 2 tenía origen y destino. Son etapas distintas del curso.
 
-2. Entidad raíz
-```sql
-CREATE TABLE core.customers (
-    cliente_id UUID DEFAULT gen_random_uuid(),
-    nombre_completo VARCHAR(100) NOT NULL,
-    correo VARCHAR(100) NOT NULL,
-    telefono VARCHAR(100) NOT NULL,
-    tax_id VARCHAR(100) NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT CURRENT_
-        TIMESTAMP NOT NULL,
-    is_active Boolean DEFAULT true NOT NULL,
+updated_at tiene un valor inicial, pero no se actualiza automáticamente por el DEFAULT.
 
-    CONSTRAINT pk_clientes PRIMARY KEY
-        (cliente_id),
-    CONSTRAINT uq_clientes_email UNIQUE
-        (email)
-);
-```
+## Cambios respecto al intento
 
-3. Entidades hijas
-```sql
-CREATE TABLE core.accounts (
-    orden_id UUID DEFAULT gen_random_uuid(),
-    cliente_id UUID NOT NULL,
-    tipo tipo_cuenta DEFAULT 'CHECKING' NOT NULL,
-    saldo monto_financiero NOT NULL,
-```
-Nota: IMG_1313.JPEG está guardada en 5/Tar, pero el encabezado "3. Entidades hijas" y el código core.accounts continúan la Actividad 5. Se incluyó aquí sin mover el archivo original. El código termina en una coma en la foto; no se añadieron líneas ni cierres.
+Completo ddl y restricciones de las cuatro tablas.
+
+[Ver el intento original](original.txt). Las partes ilegibles no se reconstruyen como si hubieran estado en la libreta.
+
+[Código SQL corregido](solucion.sql).
+
+## Referencia
+
+[Clave del profesor — Actividad 05](https://moodle.umsa.edu.mx/mod/resource/view.php?id=22907). Requiere acceso a Moodle.
