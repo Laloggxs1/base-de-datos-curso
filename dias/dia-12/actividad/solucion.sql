@@ -18,6 +18,6 @@ WHERE NOT EXISTS (
   SELECT 1 FROM core.transactions t WHERE t.account_id=a.account_id
 )
 ORDER BY a.account_number;
---Lectura de la solución: El equipo de revisión busca movimientos superiores al comportamiento habitual de su propia cuenta 
+--Lectura de la solución: La revisión busca movimientos superiores al comportamiento habitual de su propia cuenta 
 -- y cuentas que nunca han registrado eventos. Comparar un movimiento de John con el promedio global de todas las cuentas 
 -- respondería otra pregunta. La ausencia de eventos también debe distinguirse del estado is_active para no emitir una alerta administrativa falsa.
