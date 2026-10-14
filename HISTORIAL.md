@@ -24,3 +24,19 @@ Cada rama conserva el intento transcrito y la corrección. Este historial se cre
 | `tarea-09` | [2fc5213](https://github.com/Laloggxs1/base-de-datos-curso/commit/2fc5213f658f64eb5fc6cb20ea0cd63d75c7ebd9) | [728ef88](https://github.com/Laloggxs1/base-de-datos-curso/commit/728ef8887fa8b0ee74ec2a64c3eb5165b88997d9) |
 | `actividad-10` | [deb3365](https://github.com/Laloggxs1/base-de-datos-curso/commit/deb33655d9d13d4ca051235036c0cc6759f31849) | [67a7b30](https://github.com/Laloggxs1/base-de-datos-curso/commit/67a7b3066319540a86c817080b00b91b820446a0) |
 | `tarea-10` | [6bd2361](https://github.com/Laloggxs1/base-de-datos-curso/commit/6bd23611f66f989eb267356012b37aa3befaf9c7) | [9d4cf34](https://github.com/Laloggxs1/base-de-datos-curso/commit/9d4cf3446dbd341e3183731f07dc57b8ff96a1db) |
+
+## Incorporaciones del equipo: días 11–14
+
+Cada trabajo nuevo registra un commit de incorporación de la solución compartida.
+
+| Rama | Commit |
+|---|---|
+| actividad-11 | [9a3e612](https://github.com/Laloggxs1/base-de-datos-curso/commit/9a3e6120b0c25fa66f82ab44fcb649f7f6ec45f6) |
+| tarea-11 | [e7923f7](https://github.com/Laloggxs1/base-de-datos-curso/commit/e7923f78e78ab967efb45972322c84c3af94c3ae) |
+| actividad-12 | [0a8db42](https://github.com/Laloggxs1/base-de-datos-curso/commit/0a8db424fc9256ced75542b09c7205dee7cab976) |
+| tarea-12 | [414bbe7](https://github.com/Laloggxs1/base-de-datos-curso/commit/414bbe770df8fcab8336acf859b4d50b833a2bda) |
+| actividad-13 | [7dc85a0](https://github.com/Laloggxs1/base-de-datos-curso/commit/7dc85a0127db263aff3a9134bdf01680e39ad61e) |
+| tarea-13 | [f8f93e2](https://github.com/Laloggxs1/base-de-datos-curso/commit/f8f93e2b5abad7cb8a5df0e28681644a347ee307) |
+| actividad-14 | [f0e080a](https://github.com/Laloggxs1/base-de-datos-curso/commit/f0e080a3b5ae46ee7bb628efe6cb45b6cda36f62) |
+| tarea-14 | [f2bbe24](https://github.com/Laloggxs1/base-de-datos-curso/commit/f2bbe2491bf2dd27ddfba45ea87e3e2657e03db6) |
+| checkpoint-omnibank | [df04f25](https://github.com/Laloggxs1/base-de-datos-curso/commit/df04f2565cc235556958e1dc499313e15ded7a47) |

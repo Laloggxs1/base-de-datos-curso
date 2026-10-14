@@ -18,7 +18,6 @@ Este repositorio reúne 14 actividades y 14 tareas. Los días 1–10 conservan f
 | 08 | [Actividad 08](dias/dia-08/actividad/README.md) · rama `actividad-08` | [Tarea 08](dias/dia-08/tarea/README.md) · rama `tarea-08` |
 | 09 | [Actividad 09](dias/dia-09/actividad/README.md) · rama `actividad-09` | [Tarea 09](dias/dia-09/tarea/README.md) · rama `tarea-09` |
 | 10 | [Actividad 10](dias/dia-10/actividad/README.md) · rama `actividad-10` | [Tarea 10](dias/dia-10/tarea/README.md) · rama `tarea-10` |
-
 | 11 | [Actividad 11](dias/dia-11/actividad/README.md) · rama `actividad-11` | [Tarea 11](dias/dia-11/tarea/README.md) · rama `tarea-11` |
 | 12 | [Actividad 12](dias/dia-12/actividad/README.md) · rama `actividad-12` | [Tarea 12](dias/dia-12/tarea/README.md) · rama `tarea-12` |
 | 13 | [Actividad 13](dias/dia-13/actividad/README.md) · rama `actividad-13` | [Tarea 13](dias/dia-13/tarea/README.md) · rama `tarea-13` |
@@ -30,7 +29,7 @@ En los días 1–10, cada rama actividad-01…actividad-10 y tarea-01…tarea-10
 
 Los días 11–14 tienen un commit de incorporación por trabajo, sin un intento previo inventado. La rama `checkpoint-omnibank` conserva el [checkpoint de continuidad](CHECKPOINT.md).
 
-La guía del curso indica que GitHub muestra el proceso y no exige una cantidad de ramas o commits para obtener puntos. Aquí los dos commits por trabajo permiten comparar el intento y la corrección, como se planteó al organizar la entrega.
+La guía del curso indica que GitHub muestra el proceso y no exige una cantidad de ramas o commits para obtener puntos. En los días 1–10, los dos commits por trabajo permiten comparar el intento y la corrección, como se planteó al organizar la entrega.
 
 - `original.txt`: lo que se pudo leer en las fotos; contiene errores e incompletos reales.
 - `README.md`: respuesta corregida, cambios y referencia.
