@@ -6,8 +6,8 @@ El self JOIN compara pares de movimientos de la misma cuenta en una ventana de 4
 
 ## Registro del trabajo
 
-Solución compartida del equipo, incorporada a esta entrega individual. Para este trabajo no se proporcionó una foto o transcripción de un intento anterior; el historial registra la incorporación de la solución disponible.
+Solución incorporada a esta entrega. Para este trabajo no se proporcionó una foto o transcripción de un intento anterior; el historial registra la incorporación de la solución disponible.
 
-## Referencia del equipo
+## Referencia
 
-[Archivo compartido](https://github.com/Enriquee17/OmniBank/blob/main/Actividad-14.sql).
+[Archivo de referencia](https://github.com/Enriquee17/OmniBank/blob/main/Actividad-14.sql).
