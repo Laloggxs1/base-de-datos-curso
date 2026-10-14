@@ -16,5 +16,5 @@ ORDER BY am.account_number;
 SELECT (SELECT COUNT(*) FROM core.accounts WHERE is_active) AS active_accounts,
        (SELECT COALESCE(SUM(amount),0) FROM core.transactions) AS direct_gross_volume;
 -- Lectura de la solución: El tablero de productos necesita una medida de actividad por cuenta que otras consultas puedan reutilizar. 
--- El equipo no quiere repetir una agregación cada vez que agrega datos del titular o de la moneda. 
+-- Se busca evitar repetir una agregación cada vez que agrega datos del titular o de la moneda. 
 -- Un pipeline de CTE permite nombrar las etapas y declarar si cada una tiene una fila por movimiento, por cuenta o por moneda.

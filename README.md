@@ -2,7 +2,7 @@
 
 Trabajos de Jesús Eduardo Capetillo Castillo. Cuenta de GitHub: Laloggxs1.
 
-Este repositorio reúne 14 actividades y 14 tareas. Los días 1–10 conservan fotos, transcripciones originales y correcciones. Los días 11–14 incorporan las soluciones compartidas del equipo con su explicación. Las lecturas dudosas de las fotos originales se mantienen marcadas.
+Este repositorio reúne 14 actividades y 14 tareas. Los días 1–10 conservan fotos, transcripciones originales y correcciones. Los días 11–14 incorporan las soluciones con su explicación. Las lecturas dudosas de las fotos originales se mantienen marcadas.
 
 ## Trabajos
 

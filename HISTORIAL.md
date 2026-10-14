@@ -25,9 +25,9 @@ Cada rama conserva el intento transcrito y la corrección. Este historial se cre
 | `actividad-10` | [deb3365](https://github.com/Laloggxs1/base-de-datos-curso/commit/deb33655d9d13d4ca051235036c0cc6759f31849) | [67a7b30](https://github.com/Laloggxs1/base-de-datos-curso/commit/67a7b3066319540a86c817080b00b91b820446a0) |
 | `tarea-10` | [6bd2361](https://github.com/Laloggxs1/base-de-datos-curso/commit/6bd23611f66f989eb267356012b37aa3befaf9c7) | [9d4cf34](https://github.com/Laloggxs1/base-de-datos-curso/commit/9d4cf3446dbd341e3183731f07dc57b8ff96a1db) |
 
-## Incorporaciones del equipo: días 11–14
+## Incorporaciones: días 11–14
 
-Cada trabajo nuevo registra un commit de incorporación de la solución compartida.
+Cada trabajo nuevo registra un commit de incorporación de la solución.
 
 | Rama | Commit |
 |---|---|
